@@ -122,7 +122,8 @@ fi
 
 #################################custom stuff
 
-
+#makes autocomplete for cd work right with symlinks
+complete -r cd
 
 
 #https://superuser.com/questions/378018/how-can-i-do-ctrl-z-and-bg-in-one-keypress-to-make-process-continue-in-backgroun
@@ -145,16 +146,22 @@ sbc () {
     source ~/.bashrc
 }
 
+alias cprd='cp_and_rename_dirs'
+alias rm_newlines='sed -i -e '\''/^\s*$/d'\'''
+
 cp_and_rename_dirs () {
-    
+
+    #full path
     MYPWD=${PWD}  #or MYPWD=$(pwd)
+    #current directory name
+    dirname=${PWD##*/}
     
     for d in ./*/ ;
     do
-	if [ ! -d "../temp/$d" ]; then
+	if [ ! -d "../working/$dirname/$d" ]; then
   	echo "doing directory: $d"
-	cp -r $d ../temp
-	cd ../temp/$d
+	cp -r $d ../working/$dirname
+	cd ../working/$dirname/$d
 	replace_dirs_with_excess_dirs
 	cd $MYPWD
 	fi
@@ -163,7 +170,7 @@ cp_and_rename_dirs () {
     }
 
 
-
+#helper function, do not use
 replace_dir_with_excess_dir() {
 
     a=`ls *stable* | sed 's/\..*//' | sed 's/.*-//'`         # Assigns result of 'ls -l' command to 'a'
@@ -191,6 +198,7 @@ replace_dir_with_excess_dir() {
     
 }
 
+#helper function, do not use
 replace_dirs_with_excess_dirs () {
 
     for d in ./*/ ;
@@ -216,3 +224,15 @@ scp_remote_stuff() {
 scp -r james@hellgrammite.uoregon.edu:/home/james/Documents/code/*/*/pressuresweep* . 
 }
 
+
+
+#helper function, do not use
+fix_random_broken_shit () {
+
+    b=1
+    for d in ./*/ ;
+    do
+	mv $d "../pressuresweep$b"
+	let b+=1
+    done
+}
