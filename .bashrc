@@ -124,7 +124,7 @@ fi
 
 #makes autocomplete for cd work right with symlinks
 complete -r cd
-
+#autocomplete case insensitive is in ~/.inputrc
 
 #https://superuser.com/questions/378018/how-can-i-do-ctrl-z-and-bg-in-one-keypress-to-make-process-continue-in-backgroun
 
@@ -148,6 +148,10 @@ sbc () {
 
 alias cprd='cp_and_rename_dirs'
 alias rm_newlines='sed -i -e '\''/^\s*$/d'\'''
+alias talapas='ssh talapas-login.uoregon.edu'
+alias mantid='ssh mantid.uoregon.edu'
+alias phasmid='ssh phasmid.uoregon.edu'
+alias ant='ssh ant.uoregon.edu'
 
 cp_and_rename_dirs () {
 
