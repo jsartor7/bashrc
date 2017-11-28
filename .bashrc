@@ -146,6 +146,9 @@ sbc () {
     source ~/.bashrc
 }
 
+#makes cd * work, email from eric
+cd(){ builtin cd "${@:1:1}"; }
+
 alias cprd='cp_and_rename_dirs'
 alias rm_newlines='sed -i -e '\''/^\s*$/d'\'''
 alias talapas='ssh talapas-login.uoregon.edu'
