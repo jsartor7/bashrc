@@ -1,4 +1,5 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
+
+	# ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
@@ -123,7 +124,11 @@ fi
 #################################custom stuff
 
 #makes autocomplete for cd work right with symlinks
-complete -r cd
+complete -rd cd
+#makes autocomplete for cd only hit directories
+#complete -d cd
+#it seems like this is a pick one situation...
+
 #autocomplete case insensitive is in ~/.inputrc
 
 #https://superuser.com/questions/378018/how-can-i-do-ctrl-z-and-bg-in-one-keypress-to-make-process-continue-in-backgroun
@@ -149,12 +154,22 @@ sbc () {
 #makes cd * work, email from eric
 cd(){ builtin cd "${@:1:1}"; }
 
+alias ssh='ssh -Y'
 alias cprd='cp_and_rename_dirs'
 alias rm_newlines='sed -i -e '\''/^\s*$/d'\'''
 alias talapas='ssh talapas-login.uoregon.edu'
 alias mantid='ssh mantid.uoregon.edu'
 alias phasmid='ssh phasmid.uoregon.edu'
 alias ant='ssh ant.uoregon.edu'
+alias hellgrammite='ssh hellgrammite.uoregon.edu'
+
+#pipe errors and output to dev/null
+alias spotify='spotify &>/dev/null &'
+alias firefox='firefox &>/dev/null &'
+
+#this might cause problems sometime when i'm trying to run matlab
+#from command line 
+alias matlab='matlab &>/dev/null &'
 
 cp_and_rename_dirs () {
 
