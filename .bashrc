@@ -162,6 +162,7 @@ alias mantid='ssh mantid.uoregon.edu'
 alias phasmid='ssh phasmid.uoregon.edu'
 alias ant='ssh ant.uoregon.edu'
 alias hellgrammite='ssh hellgrammite.uoregon.edu'
+alias docker='sudo docker'
 
 #pipe errors and output to dev/null
 alias spotify='spotify &>/dev/null &'
@@ -170,6 +171,15 @@ alias firefox='firefox &>/dev/null &'
 #this might cause problems sometime when i'm trying to run matlab
 #from command line 
 alias matlab='matlab &>/dev/null &'
+
+alias cdn='cd_nth_dir'
+alias cd2='cdn 2'
+alias cd*='cdn 1'
+
+cd_nth_dir() {
+    a=`ls | head -n $1 | tail -1`
+    cd $a
+}
 
 cp_and_rename_dirs () {
 
