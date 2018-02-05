@@ -176,6 +176,9 @@ alias cdn='cd_nth_dir'
 alias cd2='cdn 2'
 alias cd*='cdn 1'
 
+alias data='cd ~/Documents/data'
+alias pysrc='cd ~/Documents/code/pyCudaPacking/pythonSrc'
+
 cd_nth_dir() {
     a=`ls | head -n $1 | tail -1`
     cd $a
