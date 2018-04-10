@@ -1,4 +1,19 @@
 
+###########################
+##########################
+#how to clone on a new computer
+#go to home
+#git init .
+#git remote add origin <repository-url>
+#git pull origin master
+##########################
+###########################
+
+
+
+
+
+
 	# ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
