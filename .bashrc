@@ -9,6 +9,8 @@
 ##########################
 ###########################
 
+###in this case, repository-url is git@github.com:jsartor7/bashrc.git
+
 
 
 
@@ -179,6 +181,7 @@ alias ant='ssh ant.uoregon.edu'
 alias hellgrammite='ssh hellgrammite.uoregon.edu'
 alias docker='sudo docker'
 
+
 #pipe errors and output to dev/null
 alias spotify='spotify &>/dev/null &'
 alias firefox='firefox &>/dev/null &'
@@ -290,3 +293,5 @@ fix_random_broken_shit () {
 	let b+=1
     done
 }
+
+module load cuda/8.0
