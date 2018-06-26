@@ -9,7 +9,7 @@
 ##########################
 ###########################
 
-###in this case, repository-url is git@github.com:jsartor7/bashrc.git
+###in this case, repository-url is https://github.com/jsartor7/bashrc
 
 
 
