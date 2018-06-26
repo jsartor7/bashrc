@@ -12,9 +12,9 @@
 ###in this case, repository-url is https://github.com/jsartor7/bashrc
 
 
-
-
-
+if [ -f .extrabashrc ]; then
+	. .extrabashrc
+fi
 
 	# ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
