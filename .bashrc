@@ -190,7 +190,7 @@ alias firefox='firefox &>/dev/null &'
 
 #this might cause problems sometime when i'm trying to run matlab
 #from command line 
-alias matlab='matlab &>/dev/null &'
+#alias matlab='matlab &>/dev/null &'
 
 alias cdn='cd_nth_dir'
 alias cd2='cdn 2'
@@ -207,6 +207,21 @@ cd_nth_dir() {
     a=`ls | head -n $1 | tail -1`
     cd $a
 }
+
+check_up () {
+
+    for d in ./*/ ;
+    do
+	a=`echo $d`
+	cd $d
+	cd *
+	a=$a`ls *stableList.dat`
+	echo $a
+	cd ..
+	cd ..
+    done
+	
+    }
 
 cp_and_rename_dirs () {
 
