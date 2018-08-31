@@ -190,14 +190,14 @@ alias firefox='firefox &>/dev/null &'
 
 #this might cause problems sometime when i'm trying to run matlab
 #from command line 
-alias matlab='matlab &>/dev/null &'
+#alias matlab='matlab &>/dev/null &'
 
 alias cdn='cd_nth_dir'
 alias cd2='cdn 2'
 alias cd*='cdn 1'
 
 alias cddata='cd ~/Documents/data'
-alias cdphsf='cd ~/Documents/code/pyCudaPacking/pythonSrc/hyperstaticForces'
+alias cdphsf='cd ~/Documents/code/pyCudaPacking/analysis/hyperstaticForces'
 alias cdmhsf='cd ~/Documents/MATLAB/highD/hyperStaticForces'
 
 alias count='ls | wc -l'
