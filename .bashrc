@@ -208,6 +208,21 @@ cd_nth_dir() {
     cd $a
 }
 
+check_up () {
+
+    for d in ./*/ ;
+    do
+	a=`echo $d`
+	cd $d
+	cd *
+	a=$a`ls *stableList.dat`
+	echo $a
+	cd ..
+	cd ..
+    done
+	
+    }
+
 cp_and_rename_dirs () {
 
     #full path
