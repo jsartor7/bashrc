@@ -109,6 +109,10 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias lsd='ls -ltr'
+alias my_jobs='squeue | grep jsartor7'
+alias gpu_jobs='squeue | grep gpu'
+alias my_procs='ps -xAu | grep jsartor7'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -197,7 +201,7 @@ alias cd2='cdn 2'
 alias cd*='cdn 1'
 
 alias cddata='cd ~/Documents/data'
-alias cdphsf='cd ~/Documents/code/pyCudaPacking/pythonSrc/hyperstaticForces'
+alias cdphsf='cd ~/Documents/code/pyCudaPacking/analysis/hyperstaticForces'
 alias cdmhsf='cd ~/Documents/MATLAB/highD/hyperStaticForces'
 
 alias count='ls | wc -l'
