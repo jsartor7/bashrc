@@ -210,12 +210,12 @@ cd_nth_dir() {
 
 check_up () {
 
-    for d in ./*/ ;
+    for d in `ls | sort -V` ;
     do
 	a=`echo $d`
 	cd $d
 	cd *
-	a=$a`ls *stableList.dat`
+	a=$a/`ls *stableList.dat`
 	echo $a
 	cd ..
 	cd ..
