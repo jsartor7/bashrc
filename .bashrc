@@ -219,8 +219,8 @@ check_up () {
 	a=`echo $d`
 	cd $d
 	cd *
-	a=$a/`ls *stableList.dat`
-	echo $a
+	b=`cat scalars.dat | grep excess`
+	echo $a : $b
 	cd ..
 	cd ..
     done
