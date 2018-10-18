@@ -214,6 +214,8 @@ cd_nth_dir() {
 
 check_up () {
 
+    MYPWD=${PWD}
+
     for d in `ls | sort -V` ;
     do
 	a=`echo $d`
@@ -221,8 +223,7 @@ check_up () {
 	cd *
 	b=`cat scalars.dat | grep excess`
 	echo $a : $b
-	cd ..
-	cd ..
+	cd $MYPWD
     done
 	
     }
