@@ -212,6 +212,8 @@ cd_nth_dir() {
     cd $a
 }
 
+alias cu='check_up'
+alias finished='check_up | grep " 0" | wc -l'
 check_up () {
 
     MYPWD=${PWD}
