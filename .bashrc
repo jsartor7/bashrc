@@ -110,9 +110,25 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias lsd='ls -ltr'
-alias my_jobs='squeue | grep jsartor7'
-alias gpu_jobs='squeue | grep gpu'
+
+count_jobs()
+{
+gpuJobs=$(squeue -u $1 -t RUNNING | grep " gpu" | wc -l)
+longgpuJobs=$(squeue -u $1 -t RUNNING | grep longgpu | wc -l)
+totalUnits=$((2 * longgpuJobs + gpuJobs))
+printf $gpuJobs" gpu jobs running\n"
+printf $longgpuJobs" longgpu jobs running\n"
+printf $totalUnits" total units running\n\n"
+printf "queued jobs:\n"
+squeue --Format=jobarrayid:22,partition:10,username:12,reasonlist -u $1 -t PENDING | grep gpu
+}
+
+alias squeue2='squeue --Format=jobarrayid:22,partition:10,username:12,timeused:14,reasonlist,name'
+alias my_jobs='squeue2 | grep jsartor7'
+alias gpu_jobs='squeue2 | grep gpu'
 alias my_procs='ps -xau | grep jsartor7'
+
+alias free='free -h'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
