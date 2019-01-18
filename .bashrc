@@ -202,7 +202,7 @@ alias hellgrammite='ssh hellgrammite.uoregon.edu'
 alias docker='sudo docker'
 
 #just let's get those flags in there
-alias rsync='rsync -rltv'
+alias rsync='rsync -rltvPh'
 
 #pipe errors and output to dev/null
 alias spotify='spotify &>/dev/null &'
