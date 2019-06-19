@@ -34,8 +34,8 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=10000
-HISTFILESIZE=20000
+HISTSIZE=1000000
+HISTFILESIZE=2000000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -228,8 +228,15 @@ cd_nth_dir() {
     cd $a
 }
 
+checkNumAtParticularE() {
+    b=$1
+    a='find -name scalars.dat | xargs grep "excessContacts\s $1 $" | wc -l'
+    echo $a
+}
+
 alias cu='check_up'
 alias finished='check_up | grep " 0" | wc -l'
+
 check_up () {
 
     MYPWD=${PWD}
@@ -241,6 +248,19 @@ check_up () {
 	cd *
 	b=`cat scalars.dat | grep excess`
 	echo $a : $b
+	cd $MYPWD
+    done
+	
+    }
+
+grab_cecco_shit () {
+
+    MYPWD=${PWD}
+
+    for d in `ls | sort -V` ;
+    do
+	cd $d
+	ls | sort -V | head -1 | xargs -i cp -r '{}' ../testDir/$d
 	cd $MYPWD
     done
 	
@@ -335,3 +355,5 @@ fix_random_broken_shit () {
 }
 
 module load cuda/8.0
+
+PROMPT_COMMAND='history -a'
