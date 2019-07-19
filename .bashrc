@@ -217,7 +217,7 @@ alias cd2='cdn 2'
 alias cd*='cdn 1'
 
 alias cddata='cd ~/Documents/data'
-alias cdphsf='cd ~/Documents/code/pyCudaPacking/analysis/hyperstaticForces'
+alias cdphsf='cd ~/Documents/code/pcpAnalysis/hyperstaticForces'
 alias cdmhsf='cd ~/Documents/MATLAB/highD/hyperStaticForces'
 
 alias count='ls | wc -l'
@@ -357,3 +357,40 @@ fix_random_broken_shit () {
 module load cuda/8.0
 
 PROMPT_COMMAND='history -a'
+
+
+
+#be careful here, this code is garbage
+stress_test_talapas_2 () {
+
+    MYPWD=${PWD}  #or MYPWD=$(pwd)
+    cd ~/Documents/data/100steps/5D/4096
+    rm */timestamp.txt
+    cd ~/Documents/code/pcpAnalysis/hyperstaticForces
+    for i in {0..15}; do
+	nohup python3 generatePressureSweeps.py 6 8192 100 $i &
+	sleep 0.1
+    done
+    cd $MYPWD
+}
+
+find_most_recent_modified_file() {
+
+    find . -type f -printf '%T@ %p\n' | sort -n | tail -1 | cut -f2- -d" "
+
+}
+
+all_temps() {
+    nvidia-smi -q -d temperature | grep GPU\ Current\ Temp
+    
+}
+
+store_temp_data2() {
+    while true; do
+	date >> ~/tempData/tempData.txt
+	nvidia-smi --query-gpu=serial,temperature.gpu,clocks.sm,clocks_throttle_reasons.hw_slowdown --format=csv >> ~/tempData/tempData.txt
+	echo "logged"
+    sleep 120
+    done
+
+}
