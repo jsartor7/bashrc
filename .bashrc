@@ -203,6 +203,7 @@ alias docker='sudo docker'
 
 #just let's get those flags in there
 alias rsync='rsync -rltvPh'
+alias rsync='rsync -rltvPhe "ssh -T -o Compression=no -x -c aes128-gcm@openssh.com" -a --info=progress2 '
 
 #pipe errors and output to dev/null
 alias spotify='spotify &>/dev/null &'
