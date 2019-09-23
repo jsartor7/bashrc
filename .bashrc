@@ -111,6 +111,8 @@ alias la='ls -A'
 alias l='ls -CF'
 alias lsd='ls -ltr'
 
+alias pdfview='xdg-open'
+
 count_jobs()
 {
 gpuJobs=$(squeue -u $1 -t RUNNING | grep " gpu" | wc -l)
@@ -129,6 +131,10 @@ alias gpu_jobs='squeue2 | grep gpu'
 alias my_procs='ps -xau | grep jsartor7'
 
 alias free='free -h'
+
+alias mocorlab='sudo mount -t cifs -o username=jsartor7 //corwinlab.uoregon.edu/NFSHomes/jsartor7/Documents/data ~/Documents/corwinlabData/'
+
+
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -201,6 +207,8 @@ alias ant='ssh ant.uoregon.edu'
 alias hellgrammite='ssh hellgrammite.uoregon.edu'
 alias docker='sudo docker'
 
+alias python='python -u'
+
 #just let's get those flags in there
 alias rsync='rsync -rltvPh'
 alias rsync='rsync -rltvPhe "ssh -T -o Compression=no -x -c aes128-gcm@openssh.com" -a --info=progress2 '
@@ -220,6 +228,7 @@ alias cd*='cdn 1'
 alias cddata='cd ~/Documents/data'
 alias cdphsf='cd ~/Documents/code/pcpAnalysis/hyperstaticForces'
 alias cdmhsf='cd ~/Documents/MATLAB/highD/hyperStaticForces'
+alias cdimp='cd ~/Documents/code/pyCudaPacking/pyCudaPacking/packingMixins'
 
 alias count='ls | wc -l'
 alias ebc='emacs ~/.bashrc &'
@@ -227,6 +236,14 @@ alias ebc='emacs ~/.bashrc &'
 cd_nth_dir() {
     a=`ls | head -n $1 | tail -1`
     cd $a
+}
+
+cp_and_clean() {
+    MYPWD=${PWD}
+    rsync -rltv ~/Documents/corwinlabData/pressureBins/ ~/Documents/data/pressureBins/
+    cd ~/Documents/data/pressureBins
+    rmdir */*/*/*
+    cd $MYPWD
 }
 
 checkNumAtParticularE() {
