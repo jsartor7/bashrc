@@ -30,4 +30,4 @@ fi
 # set PATH so it includes cuda
 PATH="$HOME/bin:/usr/local/cuda/bin:$PATH"
 
-export PYTHONPATH=$PYTHONPATH:/home/jsartor7/Documents/code/pyCudaPacking:~/Documents/code/pyCudaPacking
+export PYTHONPATH=$PYTHONPATH:/home/jsartor7/Documents/code/pyCudaPacking:~/Documents/code/pyCudaPacking:/home/jsartor7/Documents/code/pcpAnalysis
